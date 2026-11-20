@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PINNIES — Botanical Enamel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="studio-bg" aria-hidden="true">
+    <div class="sun-bloom bloom-1"></div>
+    <div class="sun-bloom bloom-2"></div>
+    <div class="botanical-grid"></div>
+  </div>
+
+  <!-- Top Banner -->
+  <header class="topbar">
+    <div class="brand-lockup">
+      <div class="brand-wordmark">PINNIES</div>
+      <span class="brand-sub">Botanical Enamel</span>
+    </div>
+    <div class="topbar-actions">
+      <button id="btnOpenChecklist" class="pill-btn pill-cream" type="button">
+        <span>Checklist</span>
+        <strong id="checklistCount">0 / 60</strong>
+      </button>
+      <button id="btnOpenBoard" class="pill-btn pill-gold" type="button">
+        <span>My Board</span>
+        <strong id="boardCount">0</strong>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Stage -->
+  <main class="stage">
+    <!-- PHASE 1: DIE-CUT HOLO FOIL BLIND BAG -->
+    <section id="bagStage" class="bag-stage" aria-label="Blind Bag">
+      <div id="pouchWrapper" class="pouch-wrapper">
+        <!-- Tear-off Top Cap -->
+        <div id="pouchCap" class="pouch-cap">
+          <div class="holo-foil"></div>
+          <div class="holo-glare"></div>
+          <div class="hang-hole"></div>
+          <div class="crimp-top"></div>
+        </div>
+
+        <!-- Perforated Tear Strip -->
+        <div id="tearStrip" class="tear-strip" role="slider" aria-label="Slide to rip holographic seal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+          <div class="tear-track">
+            <div id="tearFill" class="tear-fill"></div>
+            <span class="tear-prompt">SLIDE TO RIP HOLO SEAL ➔</span>
+          </div>
+          <div id="tearHandle" class="tear-handle" title="Drag across to rip">✂</div>
+        </div>
+
+        <!-- Pouch Lower Body -->
+        <div id="pouchBody" class="pouch-body">
+          <div class="holo-foil"></div>
+          <div class="holo-glare"></div>
+          <div class="crimp-side crimp-left"></div>
+          <div class="crimp-side crimp-right"></div>
+
+          <div class="pouch-emblem">
+            <svg class="terp-drop" viewBox="0 0 64 64" width="44" height="44" aria-hidden="true">
+              <defs>
+                <linearGradient id="dropGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFE66D" />
+                  <stop offset="55%" stop-color="#8CE052" />
+                  <stop offset="100%" stop-color="#2BB673" />
+                </linearGradient>
+              </defs>
+              <path d="M32 6 C32 6 12 28 12 42 C12 53 21 60 32 60 C43 60 52 53 52 42 C52 28 32 6 32 6 Z" fill="url(#dropGrad)" stroke="#0E1F16" stroke-width="4" stroke-linejoin="round"/>
+              <path d="M32 22 C27 31 25 38 32 47 C39 38 37 31 32 22 Z" fill="#0E1F16" opacity="0.22"/>
+              <ellipse cx="24" cy="36" rx="3" ry="6" transform="rotate(-18 24 36)" fill="#FFFFFF" opacity="0.7"/>
+            </svg>
+            <div class="pouch-logo">PINNIES</div>
+            <div class="pouch-tag">SMALL-BATCH BOTANICAL ENAMEL</div>
+          </div>
+
+          <div class="crimp-bottom"></div>
+        </div>
+      </div>
+
+      <p class="stage-hint">Drag across the holographic perforation strip to unbox a 1-of-1 pin</p>
+    </section>
+
+    <!-- PHASE 2: REVEAL STAGE (FLOATING PIN + EDITORIAL BUBBLE) -->
+    <section id="revealStage" class="reveal-stage hidden" aria-label="Pin Reveal">
+      <div id="burstLayer" class="burst-layer" aria-hidden="true"></div>
+
+      <div class="reveal-workspace">
+        <!-- Torn Pouch Base -->
+        <div id="tornBase" class="torn-base" aria-hidden="true">
+          <div class="holo-foil"></div>
+          <div class="jagged-lip"></div>
+          <div class="torn-logo">PINNIES</div>
+        </div>
+
+        <!-- Floating Die-Cut Pin -->
+        <div id="floatingPinAnchor" class="floating-pin-anchor">
+          <div id="pinGrabHint" class="grab-badge">Drag pin to mount</div>
+          <div id="floatingPin" class="floating-pin" role="button" tabindex="0" aria-label="Revealed Enamel Pin. Click to animate or drag onto your collector board.">
+            <div id="pinShadow" class="pin-shadow"></div>
+            <div id="pin3D" class="pin-3d">
+              <div id="pinFront" class="pin-face pin-front"></div>
+              <div id="pinBack" class="pin-face pin-back"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Separate Buttercream Editorial Spec Bubble -->
+        <aside id="specBubble" class="spec-bubble" aria-label="Strain Details">
+          <div class="bubble-pointer" aria-hidden="true"></div>
+          <div class="bubble-top">
+            <span id="specNumber" class="spec-num">#01 / 60</span>
+            <span id="specRarity" class="spec-rarity">Common • Brass Gold</span>
+          </div>
+          <h1 id="specName" class="spec-name">Pineapple Express</h1>
+          <p id="specTagline" class="spec-tagline">Art-Deco tropical locomotive with billowing enamel steam.</p>
+
+          <div class="spec-section">
+            <span class="spec-label">DOMINANT TERPENES</span>
+            <div id="specTerpenes" class="terp-pills"></div>
+          </div>
+
+          <div class="bubble-actions">
+            <button id="btnAnimatePin" class="action-btn action-animate" type="button">
+              <span>✨ Animate</span>
+            </button>
+            <button id="btnFlipPin" class="action-btn" type="button">
+              <span>↻ Flip Pin</span>
+            </button>
+            <button id="btnUvPin" class="action-btn" type="button">
+              <span>UV Glow</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Bottom Stage Bar -->
+      <div class="bottom-bar">
+        <span class="drag-instruction">✋ Drag the pin anywhere to open your Collector’s Board</span>
+        <button id="btnTearAnother" class="tear-another-btn" type="button">Tear Another Bag</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Drag Ghost Follower -->
+  <div id="dragGhost" class="drag-ghost hidden" aria-hidden="true"></div>
+
+  <!-- COLLECTOR'S CORKBOARD OVERLAY MODAL -->
+  <div id="boardModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="boardModalTitle">
+    <div class="corkboard-modal">
+      <div class="modal-header">
+        <div>
+          <h2 id="boardModalTitle">Collector’s Corkboard</h2>
+          <p id="boardModalSub">Drop your pin anywhere on the cork • Click mounted pins to animate</p>
+        </div>
+        <div class="modal-header-actions">
+          <button id="btnBoardTearAnother" class="pill-btn pill-gold" type="button">Tear Another Bag</button>
+          <button id="btnCloseBoard" class="close-btn" type="button" aria-label="Close board">✕</button>
+        </div>
+      </div>
+
+      <div id="corkSurface" class="cork-surface">
+        <div class="brass-bracket tl"></div>
+        <div class="brass-bracket tr"></div>
+        <div class="brass-bracket bl"></div>
+        <div class="brass-bracket br"></div>
+
+        <div id="dropTargetRing" class="drop-target-ring hidden">
+          <span>Release to Pin Here</span>
+        </div>
+
+        <div id="boardEmptyState" class="board-empty">
+          Tear open a holographic bag and drag your 1-of-1 strain pin onto the corkboard.
+        </div>
+
+        <div id="mountedPinsLayer" class="mounted-pins-layer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 60-STRAIN COLLECTOR'S CHECKLIST MODAL -->
+  <div id="checklistModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="checklistTitle">
+    <div class="checklist-modal">
+      <div class="modal-header">
+        <div>
+          <h2 id="checklistTitle">Series 01 Master Checklist</h2>
+          <p id="checklistProgressText">0 of 60 Botanical Pins Unlocked</p>
+        </div>
+        <button id="btnCloseChecklist" class="close-btn" type="button" aria-label="Close checklist">✕</button>
+      </div>
+
+      <div class="progress-track">
+        <div id="checklistProgressBar" class="progress-fill" style="width: 0%"></div>
+      </div>
+
+      <div class="filter-bar" role="tablist">
+        <button class="filter-chip active" data-filter="all" type="button">All (60)</button>
+        <button class="filter-chip" data-filter="unlocked" type="button">Unlocked</button>
+        <button class="filter-chip" data-filter="missing" type="button">Missing</button>
+      </div>
+
+      <div id="checklistGrid" class="checklist-grid"></div>
+    </div>
+  </div>
+
+  <!-- Data & Wave Modules -->
+  <script src="data/roster.js"></script>
+  <script src="data/wave1.js"></script>
+  <!-- Future waves drop right in here:
+  <script src="data/wave2.js"></script>
+  <script src="data/wave3.js"></script>
+  <script src="data/wave4.js"></script>
+  <script src="data/wave5.js"></script>
+  <script src="data/wave6.js"></script>
+  -->
+  <script src="app.js"></script>
+</body>
+</html>
